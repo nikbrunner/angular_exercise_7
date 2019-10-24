@@ -39,6 +39,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    // todo check if cart is avaible in the localstorage
     this.cart = JSON.parse(localStorage.getItem('cart'));
     this.datenService.getData().subscribe(
       values => {
