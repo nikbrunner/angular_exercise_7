@@ -1,0 +1,557 @@
+*********
+* Teil 01
+*********
+
+* Erstelle ein neues Projekt mit dem Namen "uebung07"
+
+AppComponent
+------------
+
+* In "app.component.html" ersetze den existierenden Inhalt durch:
+
+*********
+<div id="container">
+  <header>
+    <h1></h1>
+  </header>
+  <nav class="clearfix">
+    <div>Startseite</div>
+    <div>Warenkorb</div>
+  </nav>
+  <main>
+  </main>
+</div>
+*********
+
+* In "app.component.css" füge Folgendes ein:
+
+*********
+#container {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 95%;
+    margin: 0 auto
+}
+h2 {
+    font-size: 90%
+}
+nav div {
+    border: 1px solid grey;
+    padding: 10px 20px;
+    background-color: lightgrey;
+    cursor: pointer;
+    float: left
+}
+nav div.selected {
+    background-color: #ddd;
+    color: grey
+}
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+*********
+
+* Weise der Variable "title" den Wert "Bücher und Mehr", lasse diesen im H1 ausgeben.
+
+* Der Output für geroutete Komponenten soll im MAIN-Element erfolgen.
+* Verlinke "Startseite" und "Warenkorb" später entsprechend.
+
+
+
+*********
+* Teil 02
+*********
+
+* Erzeuge unter "/assets" die Datei "artikel.json", mit folgendem Inhalt:
+
+*********
+[ 
+  {
+    "name": "Entertainment",
+    "gruppe": [
+      {
+        "name": "Spiele",
+        "artikel": [
+          {
+            "id": 1,
+            "titel": "Donkey Kong",
+            "jahr": 1981,
+            "publisher": "Nintendo",
+            "preis": 99.99
+          },
+          {
+            "id": 2,
+            "titel": "Pac-Man",
+            "jahr": 1980,
+            "publisher": "Namco",
+            "preis": 99.99
+          },
+          {
+            "id": 3,
+            "titel": "Asteroids",
+            "jahr": 1979,
+            "publisher": "Atari",
+            "preis": 99.99
+          },
+          {
+            "id": 4,
+            "titel": "Space Invaders",
+            "jahr": 1978,
+            "publisher": "Taito",
+            "preis": 99.99
+          },
+          {
+            "id": 5,
+            "titel": "Pong",
+            "jahr": 1972,
+            "publisher": "Atari",
+            "preis": 99.99
+          }
+        ]
+      },
+      {
+        "name": "Bücher",
+        "artikel": [
+          {
+            "id": 1,
+            "author": "Stephen King",
+            "titel": "Carrie",
+            "jahr": 1974,
+            "seiten": 199,
+            "verlag": "Doubleday",
+            "preis": 9.99
+          },
+          {
+            "id": 2,
+            "author": "Stephen King",
+            "titel": "The Shining",
+            "jahr": 1977,
+            "seiten": 447,
+            "verlag": "Doubleday",
+            "preis": 9.99
+          },
+          {
+            "id": 3,
+            "author": "Stephen King",
+            "titel": "Christine",
+            "jahr": 1983,
+            "seiten": 526,
+            "verlag": "Viking",
+            "preis": 14.99
+          },
+          {
+            "id": 4,
+            "author": "Stephen King",
+            "titel": "It",
+            "jahr": 1986,
+            "seiten": 1138,
+            "verlag": "Viking",
+            "preis": 19.99
+          },
+          {
+            "id": 5,
+            "author": "Stephen King",
+            "titel": "Misery",
+            "jahr": 1987,
+            "seiten": 310,
+            "verlag": "Viking",
+            "preis": 9.99
+          },
+          {
+            "id": 6,
+            "author": "Stephen King",
+            "titel": "Joyland",
+            "jahr": 2013,
+            "seiten": 288,
+            "verlag": "Hard Case Crime",
+            "preis": 9.99
+          }
+        ]
+      },
+      {
+        "name": "Audio-Books",
+        "artikel": [
+          {
+            "id": 1,
+            "author": "Stephen King",
+            "titel": "Bag of Bones",
+            "jahr": 2005,
+            "laenge": 240,
+            "verlag": "Simon & Schuster Audio",
+            "preis": 19.99
+          },
+          {
+            "id": 2,
+            "author": "Stephen King",
+            "titel": "On Writing: A Memoir of the Craft",
+            "jahr": 2000,
+            "laenge": 120,
+            "verlag": "Simon & Schuster Audio",
+            "preis": 19.99
+          },
+          {
+            "id": 3,
+            "author": "Stephen King",
+            "titel": "Salem's Lot (introduction)",
+            "jahr": 2004,
+            "laenge": 180,
+            "verlag": "Simon & Schuster Audio",
+            "preis": 29.99
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sport",
+    "gruppe": [
+      {
+        "name": "Schuhe",
+        "artikel": [
+          {
+            "id": 1,
+            "titel": "Air Betonfuß",
+            "hersteller": "Mike",
+            "preis": 149.99
+          },
+          {
+            "id": 2,
+            "titel": "Turtle Light",
+            "hersteller": "attitas",
+            "preis": 129.99
+          },
+          {
+            "id": 3,
+            "titel": "Royal Classic Loser",
+            "hersteller": "Rehbock",
+            "preis": 99.99
+          }
+        ]
+      },
+      {
+        "name": "Geräte",
+        "artikel": [
+          {
+            "id": 1,
+            "titel": "Hantelset 250g",
+            "beschreibung": "Kurzhantel, 10 Scheiben",
+            "preis": 149.99
+          },
+          {
+            "id": 2,
+            "titel": "Fingerexpander",
+            "beschreibung": "Maximallänge 25cm",
+            "preis": 149.99
+          },
+          {
+            "id": 3,
+            "titel": "Gymnastikball",
+            "beschreibung": "Durchmesser 8,5m",
+            "preis": 149.99
+          }
+        ]
+      }
+    ]
+  }
+]
+*********
+
+
+
+*********
+* Teil 03
+*********
+
+* Erzeuge den Service "daten".
+* Dieser soll den Inhalt der Datei "artikel.json" auslesen und zurückgeben.
+
+
+
+*********
+* Teil 04
+*********
+
+* Erzeuge die Komponente "home".
+* Route diese Komponente als Startseiteninhalt.
+
+* Ersetze im Template den Inhalt durch:
+
+*********
+<h2>Willkommen zum Shop!</h2>
+<!-- FORMULAR -->
+<form>
+    <select>
+        <option value="-1">Bitte Bereich wählen</option>
+    </select>
+    <select>
+        <option value="-1">Bitte wählen</option>
+    </select>
+</form>
+
+<!-- SPIELE -->
+<div>
+    <h2>Spiele</h2>
+    <table>
+        <tr>
+            <th>Titel</th>
+            <th>Preis</th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+
+<!-- BÜCHER -->
+<div>
+    <h2>Bücher</h2>
+    <table>
+        <tr>
+            <th>Autor</th>
+            <th>Titel</th>
+            <th>Preis</th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+
+<!-- AUDIO-BOOKS -->
+<div>
+    <h2>Audio-Books</h2>
+    <table>
+        <tr>
+            <th>Autor</th>
+            <th>Titel</th>
+            <th>Preis</th>
+            <th></th>
+        </tr>
+    </table>    
+</div>
+
+<!-- SCHUHE -->
+<div>
+    <h2>Schuhe</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Preis</th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+
+<!-- GERÄTE -->
+<div>
+    <h2>Geräte</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Beschreibung</th>
+            <th>Preis</th>
+            <th></th>
+        </tr>
+    </table>
+</div>
+*********
+
+* Füge folgenden CSS-Code ein:
+
+*********
+table {
+    text-align: left;
+    border: 1px solid grey;
+    border-collapse: collapse
+}
+td, th {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 8px 16px
+}
+th {
+    background-color: lightgrey;
+}
+td:last-child {
+    cursor: pointer
+}
+*********
+
+
+
+*********
+* Teil 05
+*********
+
+* Verbinde die Komponente "home" mit dem Service "daten".
+* Speichere die Daten beim Empfang im Webstorage.
+
+* Fülle die Auswahllisten und Tabellen dynamisch, basierend auf dem Inhalt von "daten".
+
+* Hinter jedem Artikel in den Tabellen soll auch noch ein Link erscheinen mit dem
+Text "Hinzufügen>", der zur späterern Komponente "add" weiterleitet
+und dabei die Parameter für Bereich, Unterbereich und ID übergibt.
+
+
+
+*********
+* Teil 06
+*********
+
+* Erzeuge die Komponente "add".
+* Route diese Komponente als "add", inklusive der Parameter für Bereich, Unterbereich und ID.
+
+* Ersetze im Template den Inhalt durch:
+
+*********
+<h2>Das Produkt wurde zum Warenkorb hinzugefügt:</h2>
+<div>
+    <div>
+		<!-- SPIELE -->
+        <div>
+            <table>
+                <tr>
+                    <th>Titel</th>
+                    <th>Jahr</th>
+                    <th>Publisher</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </div>
+		<!-- BÜCHER -->
+        <div>
+            <table>
+                <tr>
+                    <th>Autor</th>
+                    <th>Titel</th>
+                    <th>Jahr</th>
+                    <th>Seiten</th>
+                    <th>Verlag</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </div>
+		<!-- AUDIO-BOOKS -->
+        <div>
+            <table>
+                <tr>
+                    <th>Autor</th>
+                    <th>Titel</th>
+                    <th>Jahr</th>
+                    <th>Länge</th>
+                    <th>Verlag</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div>
+		<!-- SCHUHE -->
+        <div>
+            <table>
+                <tr>
+                    <th>Titel</th>
+                    <th>Hersteller</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </div>
+		<!-- GERÄTE -->
+        <div>
+            <table>
+                <tr>
+                    <th>Titel</th>
+                    <th>Beschreibung</th>
+                    <th>Preis</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<p>
+    <a>Zum Warenkorb</a>
+</p>
+<p>
+    <a>Zurück zum Shop</a>
+</p>
+*********
+
+* Füge folgenden CSS-Code ein:
+
+*********
+table {
+    text-align: left;
+    border: 1px solid grey;
+    border-collapse: collapse
+}
+td, th {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 8px;
+    max-width: 120px
+}
+th {
+    background-color: lightgrey;
+}
+*********
+
+* Lade die "daten" aus dem Webstorage.
+
+* Lade auch den "warenkorb" aus dem Webstorage.
+* Falls noch kein Eintrag vorhanden ist, wird einer erzeugt.
+* Füge davor noch das ausgewählte Produkt dem "warenkorb" hinzu.
+
+* Verlinke später zur Startseite und der "cart"-Komponente.
+
+
+
+*********
+* Teil 07
+*********
+
+* Erzeuge die Komponente "cart" und route diese mit derselben Adresse.
+
+* Ersetze im Template den Inhalt durch:
+
+*********
+<h2>Warenkorb</h2>
+<table>
+    <tr>
+        <th>Titel</th>
+        <th>Preis</th>
+        <th></th>
+    </tr>
+</table>
+<ng-template>
+    <p>Der Warenkorb ist leer.</p>
+</ng-template>
+*********
+
+* Füge folgenden CSS-Code ein:
+
+*********
+table {
+    text-align: left;
+    border: 1px solid grey;
+    border-collapse: collapse
+}
+td, th {
+    border: 1px solid grey;
+    border-collapse: collapse;
+    padding: 8px;
+    max-width: 120px
+}
+th {
+    background-color: lightgrey;
+}
+td:last-child {
+    cursor: pointer
+}
+*********
+
+* Lade die "daten" aus dem Webstorage.
+
+* Lade auch den "warenkorb" aus dem Webstorage.
+* Falls noch kein Eintrag vorhanden ist, wird einer erzeugt.
+
+* Lass alle Artikel des Warenkorbs anzeigen, oder stattdessen die "Warenkorb leer" Meldung.
+
+* Bei jedem Artikel soll es auch einen Link geben, um diesen aus dem Warenkorb zu entfernen.
+Erzeuge die entsprechende Funktion.

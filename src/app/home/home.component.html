@@ -1,0 +1,198 @@
+<div *ngIf="response">
+  <h2>Willkommen zum Shop!</h2>
+  <!-- {{ shoppingProfile | json }} -->
+  <!-- FORMULAR -->
+  <form>
+    <select [(ngModel)]="shoppingProfile.category" name="category">
+      <option value="-1">Bitte Bereich wählen</option>
+      <option
+        *ngFor="let category of categories; index as i"
+        value="{{ i }}"
+      >
+        {{ category.name }}
+      </option>
+    </select>
+
+    <select
+      *ngIf="shoppingProfile.category === '0'"
+      [(ngModel)]="shoppingProfile.subCategory"
+      name="subCategory"
+    >
+      <option value="-1" selected>Bitte wählen</option>
+      <option
+        *ngFor="
+          let subCategory of categories[shoppingProfile.category]
+            .subCategories;
+          index as i
+        "
+        value="{{ i }}"
+      >
+        {{ subCategory }}
+      </option>
+    </select>
+
+    <select
+      *ngIf="shoppingProfile.category === '1'"
+      [(ngModel)]="shoppingProfile.subCategory"
+      name="subCategory"
+    >
+      <option value="-1" selected>Bitte wählen</option>
+      <option
+        *ngFor="
+          let subCategory of categories[shoppingProfile.category]
+            .subCategories;
+          index as i
+        "
+        value="{{ i }}"
+      >
+        {{ subCategory }}
+      </option>
+    </select>
+  </form>
+
+  <!-- SPIELE -->
+  <div
+    *ngIf="
+      shoppingProfile.category === '0' &&
+      shoppingProfile.subCategory === '0'
+    "
+  >
+    <h2>Spiele</h2>
+    <table>
+      <tr>
+        <th>Titel</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let game of games; index as i">
+        <td>{{ game.titel }}</td>
+        <td>{{ game.preis }}</td>
+        <td
+          (click)="
+            add(shoppingProfile.category, shoppingProfile.subCategory, i)
+          "
+        >
+          Hinzufügen >>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- BÜCHER -->
+  <div
+    *ngIf="
+      shoppingProfile.category === '0' &&
+      shoppingProfile.subCategory === '1'
+    "
+  >
+    <h2>Bücher</h2>
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Titel</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let book of books; index as i">
+        <td>{{ book.author }}</td>
+        <td>{{ book.titel }}</td>
+        <td>{{ book.preis }}</td>
+        <td
+          (click)="
+            add(shoppingProfile.category, shoppingProfile.subCategory, i)
+          "
+        >
+          Hinzufügen >>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- AUDIO-BOOKS -->
+  <div
+    *ngIf="
+      shoppingProfile.category === '0' &&
+      shoppingProfile.subCategory === '2'
+    "
+  >
+    <h2>Audio-Books</h2>
+    <table>
+      <tr>
+        <th>Author</th>
+        <th>Titel</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let audioBook of audioBooks; index as i">
+        <td>{{ audioBook.author }}</td>
+        <td>{{ audioBook.titel }}</td>
+        <td>{{ audioBook.preis }}</td>
+        <td
+          (click)="
+            add(shoppingProfile.category, shoppingProfile.subCategory, i)
+          "
+        >
+          Hinzufügen >>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- SCHUHE -->
+  <div
+    *ngIf="
+      shoppingProfile.category === '1' &&
+      shoppingProfile.subCategory === '0'
+    "
+  >
+    <h2>Schuhe</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let shoe of shoes; index as i">
+        <td>{{ shoe.titel }}</td>
+        <td>{{ shoe.preis }}</td>
+        <td
+          (click)="
+            add(shoppingProfile.category, shoppingProfile.subCategory, i)
+          "
+        >
+          Hinzufügen >>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- GERÄTE -->
+  <div
+    *ngIf="
+      shoppingProfile.category === '1' &&
+      shoppingProfile.subCategory === '1'
+    "
+  >
+    <h2>Geräte</h2>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Beschreibung</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let thing of things; index as i">
+        <td>{{ thing.titel }}</td>
+        <td>{{ thing.beschreibung }}</td>
+        <td>{{ thing.preis }}</td>
+        <td
+          (click)="
+            add(shoppingProfile.category, shoppingProfile.subCategory, i)
+          "
+        >
+          Hinzufügen >>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
