@@ -1,70 +1,104 @@
-<h2>Das Produkt wurde zum Warenkorb hinzugefügt:</h2>
-<div>
+<div *ngIf="response">
+  <h2>Das Produkt wurde zum Warenkorb hinzugefügt:</h2>
   <div>
-    <!-- SPIELE -->
-    <div>
-      <table>
-        <tr>
-          <th>Titel</th>
-          <th>Jahr</th>
-          <th>Publisher</th>
-          <th>Preis</th>
-        </tr>
-      </table>
+    <div *ngIf="category === '0'">
+      <!-- SPIELE -->
+      <div *ngIf="category === '0' && subCategory === '0'">
+        <table>
+          <tr>
+            <th>Titel</th>
+            <th>Jahr</th>
+            <th>Publisher</th>
+            <th>Preis</th>
+          </tr>
+          <tr>
+            <td>{{ games[index].titel }}</td>
+            <td>{{ games[index].jahr }}</td>
+            <td>{{ games[index].publisher }}</td>
+            <td>{{ games[index].preis }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- BÜCHER -->
+      <div *ngIf="category === '0' && subCategory === '1'">
+        <table>
+          <tr>
+            <th>Author</th>
+            <th>Titel</th>
+            <th>Jahr</th>
+            <th>Seiten</th>
+            <th>Verlag</th>
+            <th>Preis</th>
+          </tr>
+          <tr>
+            <td>{{ books[index].author }}</td>
+            <td>{{ books[index].titel }}</td>
+            <td>{{ books[index].jahr }}</td>
+            <td>{{ books[index].seiten }}</td>
+            <td>{{ books[index].verlag }}</td>
+            <td>{{ books[index].preis }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- AUDIO-BOOKS -->
+      <div *ngIf="category === '0' && subCategory === '2'">
+        <table>
+          <tr>
+            <th>Autor</th>
+            <th>Titel</th>
+            <th>Jahr</th>
+            <th>Länge</th>
+            <th>Verlag</th>
+            <th>Preis</th>
+          </tr>
+          <tr>
+            <td>{{ audioBooks[index].author }}</td>
+            <td>{{ audioBooks[index].titel }}</td>
+            <td>{{ audioBooks[index].jahr }}</td>
+            <td>{{ audioBooks[index].laenge }}</td>
+            <td>{{ audioBooks[index].verlag }}</td>
+            <td>{{ audioBooks[index].preis }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
-    <!-- BÜCHER -->
     <div>
-      <table>
-        <tr>
-          <th>Autor</th>
-          <th>Titel</th>
-          <th>Jahr</th>
-          <th>Seiten</th>
-          <th>Verlag</th>
-          <th>Preis</th>
-        </tr>
-      </table>
-    </div>
-    <!-- AUDIO-BOOKS -->
-    <div>
-      <table>
-        <tr>
-          <th>Autor</th>
-          <th>Titel</th>
-          <th>Jahr</th>
-          <th>Länge</th>
-          <th>Verlag</th>
-          <th>Preis</th>
-        </tr>
-      </table>
+      <!-- SCHUHE -->
+      <div *ngIf="category === '1' && subCategory === '0'">
+        <table>
+          <tr>
+            <th>Titel</th>
+            <th>Hersteller</th>
+            <th>Preis</th>
+          </tr>
+          <tr>
+            <td>{{ shoes[index].titel }}</td>
+            <td>{{ shoes[index].hersteller }}</td>
+            <td>{{ shoes[index].preis }}</td>
+          </tr>
+        </table>
+      </div>
+      <!-- GERÄTE -->
+      <div *ngIf="category === '1' && subCategory === '1'">
+        <table>
+          <tr>
+            <th>Titel</th>
+            <th>Beschreibung</th>
+            <th>Preis</th>
+          </tr>
+          <tr>
+            <td>{{ things[index].titel }}</td>
+            <td>{{ things[index].beschreibung }}</td>
+            <td>{{ things[index].preis }}</td>
+          </tr>
+        </table>
+      </div>
     </div>
   </div>
-  <div>
-    <!-- SCHUHE -->
-    <div>
-      <table>
-        <tr>
-          <th>Titel</th>
-          <th>Hersteller</th>
-          <th>Preis</th>
-        </tr>
-      </table>
-    </div>
-    <!-- GERÄTE -->
-    <div>
-      <table>
-        <tr>
-          <th>Titel</th>
-          <th>Beschreibung</th>
-          <th>Preis</th>
-        </tr>
-      </table>
-    </div>
-  </div>
+  <p>
+    <a>Zum Warenkorb</a>
+  </p>
+  <p>
+    <a routerLink="/">Zurück zum Shop</a>
+  </p>
 </div>
-<p>
-  <a>Zum Warenkorb</a>
-</p>
-<p>
-  <a>Zurück zum Shop</a>
-</p>

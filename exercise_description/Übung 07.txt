@@ -491,7 +491,7 @@ th {
     background-color: lightgrey;
 }
 *********
-
+=== 24.10.19 / 14:05
 * Lade die "daten" aus dem Webstorage.
 
 * Lade auch den "warenkorb" aus dem Webstorage.

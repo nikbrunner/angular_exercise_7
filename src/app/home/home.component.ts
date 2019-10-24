@@ -11,8 +11,8 @@ export class HomeComponent implements OnInit {
   public shoppingProfile = {
     category: '-1',
     subCategory: '-1',
-    cart: '',
   };
+  public cart = [];
   public response = false;
   public articles = {};
   public categories = [];
@@ -29,9 +29,17 @@ export class HomeComponent implements OnInit {
 
   add(category, subCategory, i) {
     this.router.navigate(['/add', category, subCategory, i]);
+    this.cart.push({
+      category,
+      subCategory,
+      i,
+    });
+    const cartAsJSON = JSON.stringify(this.cart);
+    localStorage.setItem('cart', cartAsJSON);
   }
 
   ngOnInit() {
+    this.cart = JSON.parse(localStorage.getItem('cart'));
     this.datenService.getData().subscribe(
       values => {
         this.response = true;

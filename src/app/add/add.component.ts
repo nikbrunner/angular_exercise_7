@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 export class AddComponent implements OnInit {
   public category;
   public subCategory;
-  public i;
+  public index;
   public response = false;
   public articles = {};
   public categories = [];
@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.category = this.route.snapshot.paramMap.get('category');
     this.subCategory = this.route.snapshot.paramMap.get('subCategory');
-    this.i = this.route.snapshot.paramMap.get('i');
+    this.index = this.route.snapshot.paramMap.get('i');
     this.datenService.getData().subscribe(
       values => {
         this.response = true;
