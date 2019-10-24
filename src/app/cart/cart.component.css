@@ -1,0 +1,20 @@
+table {
+  text-align: left;
+  border: 1px solid grey;
+  border-collapse: collapse;
+}
+td,
+th {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 8px;
+}
+th {
+  background-color: lightgrey;
+}
+td:first-child {
+  width: 50rem;
+}
+td:last-child {
+  cursor: pointer;
+}

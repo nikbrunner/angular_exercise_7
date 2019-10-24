@@ -49,8 +49,6 @@ export class AddComponent implements OnInit {
         this.audioBooks = values[0].gruppe[2].artikel;
         this.shoes = values[1].gruppe[0].artikel;
         this.things = values[1].gruppe[1].artikel;
-        const articlesAsJSON = JSON.stringify(values);
-        localStorage.setItem('artikel', articlesAsJSON);
       },
       error => console.log(error),
       () => console.log('fertig')

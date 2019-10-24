@@ -1,0 +1,29 @@
+<h2>Warenkorb</h2>
+<table>
+  <tr>
+    <th>Titel</th>
+    <th>Preis</th>
+    <th></th>
+  </tr>
+  <tr *ngFor="let item of cart; index as i">
+    <td>
+      {{
+        articles[item.category].gruppe[item.subCategory].artikel[item.i]
+          .titel
+      }}
+    </td>
+    <td>
+      {{
+        articles[item.category].gruppe[item.subCategory].artikel[item.i]
+          .preis
+      }}
+    </td>
+    <td>
+      Löschen ❌
+    </td>
+  </tr>
+</table>
+
+<ng-template>
+  <p>Der Warenkorb ist leer.</p>
+</ng-template>

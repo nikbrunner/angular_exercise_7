@@ -1,18 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DatenService } from '../daten.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
+  selector: 'app-cart',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.css'],
 })
-export class HomeComponent implements OnInit {
-  public shoppingProfile = {
-    category: '-1',
-    subCategory: '-1',
-  };
-  public cart = [];
+export class CartComponent implements OnInit {
+  public cart = {};
   public response = false;
   public articles = {};
   public categories = [];
@@ -22,21 +17,7 @@ export class HomeComponent implements OnInit {
   public shoes = {};
   public things = {};
 
-  constructor(
-    private datenService: DatenService,
-    private router: Router
-  ) {}
-
-  add(category, subCategory, i) {
-    this.router.navigate(['/add', category, subCategory, i]);
-    this.cart.push({
-      category,
-      subCategory,
-      i,
-    });
-    const cartAsJSON = JSON.stringify(this.cart);
-    localStorage.setItem('cart', cartAsJSON);
-  }
+  constructor(private datenService: DatenService) {}
 
   ngOnInit() {
     this.cart = JSON.parse(localStorage.getItem('cart'));

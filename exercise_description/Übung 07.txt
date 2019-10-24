@@ -491,7 +491,6 @@ th {
     background-color: lightgrey;
 }
 *********
-=== 24.10.19 / 14:05
 * Lade die "daten" aus dem Webstorage.
 
 * Lade auch den "warenkorb" aus dem Webstorage.
@@ -549,6 +548,7 @@ td:last-child {
 * Lade die "daten" aus dem Webstorage.
 
 * Lade auch den "warenkorb" aus dem Webstorage.
+
 * Falls noch kein Eintrag vorhanden ist, wird einer erzeugt.
 
 * Lass alle Artikel des Warenkorbs anzeigen, oder stattdessen die "Warenkorb leer" Meldung.
