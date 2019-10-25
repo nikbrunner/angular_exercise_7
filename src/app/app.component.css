@@ -1,25 +1,13 @@
 #container {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  width: 95%;
+  width: 960px;
   margin: 0 auto;
 }
-h2 {
-  font-size: 90%;
+
+.mat-toolbar {
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
-nav div {
-  border: 1px solid grey;
-  padding: 10px 20px;
-  background-color: lightgrey;
+
+.mat-toolbar span {
   cursor: pointer;
-  float: left;
-}
-nav div.selected {
-  background-color: #ddd;
-  color: grey;
-}
-.clearfix:after {
-  content: '';
-  display: table;
-  clear: both;
 }

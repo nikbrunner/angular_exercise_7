@@ -1,15 +1,33 @@
 table {
-  text-align: left;
-  border: 1px solid grey;
+  text-align: right;
   border-collapse: collapse;
+  width: 100%;
+  margin: 2.5rem 0;
+  background: steelblue;
 }
 td,
 th {
-  border: 1px solid grey;
   border-collapse: collapse;
-  padding: 8px;
-  max-width: 120px;
+  padding: 0.5rem;
+}
+td {
+  padding: 1rem 0.5rem;
 }
 th {
-  background-color: lightgrey;
+  background-color: #212121;
+}
+
+td:first-child,
+th:first-child {
+  text-align: left;
+}
+
+td:last-child {
+  cursor: pointer;
+}
+.mat-toolbar {
+  justify-content: space-between;
+  border-radius: 0.25rem;
+  background: transparent;
+  padding: 0;
 }

@@ -1,11 +1,8 @@
 <div id="container">
-  <header>
-    <h1>{{ title }}</h1>
-  </header>
-  <nav class="clearfix">
-    <div routerLink="/">Startseite</div>
-    <div routerLink="/cart">Warenkorb</div>
-  </nav>
+  <mat-toolbar>
+    <span routerLink="/">{{ title }}</span>
+    <span routerLink="/cart">🛒</span>
+  </mat-toolbar>
   <main>
     <router-outlet></router-outlet>
   </main>

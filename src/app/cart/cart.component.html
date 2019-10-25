@@ -1,4 +1,4 @@
-<h2>Warenkorb</h2>
+<h2 class="mat-display-2">Warenkorb</h2>
 
 <div *ngIf="response">
   <div *ngIf="cart.length > 0; else elseBlock">
@@ -22,14 +22,29 @@
               item.i
             ].preis
           }}
+          €
         </td>
-        <td (click)="deleteItemFromCart(i)">
-          Löschen ❌
+        <td>
+          <button
+            mat-raised-button
+            class="btnToDeleteFromCart"
+            (click)="deleteItemFromCart(i)"
+          >
+            🗑️
+          </button>
         </td>
       </tr>
     </table>
 
-    <button (click)="emptyCart()">Empty Cart</button>
+    <mat-toolbar>
+      <button mat-raised-button routerLink="/">Zurück zum Shop</button>
+      <button mat-raised-button (click)="emptyCart()" color="warn">
+        Warenkorb leeren
+      </button>
+      <button mat-raised-button class="btnOrder">
+        Bestellen
+      </button>
+    </mat-toolbar>
   </div>
   <ng-template #elseBlock>
     <p>Der Warenkorb ist leer.</p>

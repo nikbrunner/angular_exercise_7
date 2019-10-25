@@ -1,5 +1,5 @@
 <div *ngIf="response">
-  <h2>Das Produkt wurde zum Warenkorb hinzugefügt:</h2>
+  <p>Dieses Produkt wurde zum Warenkorb hinzugefügt:</p>
   <div>
     <div *ngIf="category === '0'">
       <!-- SPIELE -->
@@ -95,10 +95,10 @@
       </div>
     </div>
   </div>
-  <p>
-    <a routerLink="/cart">Zum Warenkorb</a>
-  </p>
-  <p>
-    <a routerLink="/">Zurück zum Shop</a>
-  </p>
+  <mat-toolbar>
+    <button mat-raised-button routerLink="/">Zurück zum Shop</button>
+    <button mat-raised-button routerLink="/cart">
+      Zum Warenkorb
+    </button>
+  </mat-toolbar>
 </div>
