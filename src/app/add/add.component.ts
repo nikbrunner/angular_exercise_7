@@ -51,7 +51,7 @@ export class AddComponent implements OnInit {
         this.things = values[1].gruppe[1].artikel;
       },
       error => console.log(error),
-      () => console.log('fertig')
+      () => {}
     );
   }
 }

@@ -3,7 +3,11 @@
   <!-- {{ shoppingProfile | json }} -->
   <!-- FORMULAR -->
   <form>
-    <select [(ngModel)]="shoppingProfile.category" name="category">
+    <select 
+      (change)="resetSubCategory()"
+      [(ngModel)]="shoppingProfile.category" 
+      name="category"
+    >
       <option value="-1">Bitte Bereich wählen</option>
       <option
         *ngFor="let category of categories; index as i"

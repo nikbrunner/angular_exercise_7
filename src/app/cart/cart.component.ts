@@ -7,7 +7,7 @@ import { DatenService } from '../daten.service';
   styleUrls: ['./cart.component.css'],
 })
 export class CartComponent implements OnInit {
-  public cart = {};
+  public cart = [];
   public response = false;
   public articles = {};
 
@@ -21,7 +21,22 @@ export class CartComponent implements OnInit {
         this.articles = values;
       },
       error => console.log(error),
-      () => console.log('fertig')
+      () => {}
     );
+  }
+
+  deleteItemFromCart(index) {
+    const updatedCart = [...this.cart];
+    updatedCart.splice(index, 1);
+    this.cart = updatedCart;
+    const updatedCartAsJSON = JSON.stringify(updatedCart);
+    localStorage.setItem('cart', updatedCartAsJSON);
+  }
+
+  emptyCart() {
+    const emptyCart = [];
+    this.cart = emptyCart;
+    const emptyCartAsJSON = JSON.stringify(emptyCart);
+    localStorage.setItem('cart', emptyCartAsJSON);
   }
 }

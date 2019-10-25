@@ -27,17 +27,6 @@ export class HomeComponent implements OnInit {
     private router: Router
   ) {}
 
-  add(category, subCategory, i) {
-    this.router.navigate(['/add', category, subCategory, i]);
-    this.cart.push({
-      category,
-      subCategory,
-      i,
-    });
-    const cartAsJSON = JSON.stringify(this.cart);
-    localStorage.setItem('cart', cartAsJSON);
-  }
-
   ngOnInit() {
     if (localStorage.getItem('cart') === null) {
       this.cart = [];
@@ -68,7 +57,22 @@ export class HomeComponent implements OnInit {
         this.things = values[1].gruppe[1].artikel;
       },
       error => console.log(error),
-      () => console.log('fertig')
+      () => {}
     );
+  }
+
+  add(category, subCategory, i) {
+    this.router.navigate(['/add', category, subCategory, i]);
+    this.cart.push({
+      category,
+      subCategory,
+      i,
+    });
+    const cartAsJSON = JSON.stringify(this.cart);
+    localStorage.setItem('cart', cartAsJSON);
+  }
+
+  resetSubCategory() {
+    this.shoppingProfile.subCategory = '-1';
   }
 }

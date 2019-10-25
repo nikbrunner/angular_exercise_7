@@ -1,29 +1,37 @@
 <h2>Warenkorb</h2>
-<table>
-  <tr>
-    <th>Titel</th>
-    <th>Preis</th>
-    <th></th>
-  </tr>
-  <tr *ngFor="let item of cart; index as i">
-    <td>
-      {{
-        articles[item.category].gruppe[item.subCategory].artikel[item.i]
-          .titel
-      }}
-    </td>
-    <td>
-      {{
-        articles[item.category].gruppe[item.subCategory].artikel[item.i]
-          .preis
-      }}
-    </td>
-    <td>
-      Löschen ❌
-    </td>
-  </tr>
-</table>
 
-<ng-template>
-  <p>Der Warenkorb ist leer.</p>
-</ng-template>
+<div *ngIf="response">
+  <div *ngIf="cart.length > 0; else elseBlock">
+    <table>
+      <tr>
+        <th>Titel</th>
+        <th>Preis</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let item of cart; index as i">
+        <td>
+          {{
+            articles[item.category].gruppe[item.subCategory].artikel[
+              item.i
+            ].titel
+          }}
+        </td>
+        <td>
+          {{
+            articles[item.category].gruppe[item.subCategory].artikel[
+              item.i
+            ].preis
+          }}
+        </td>
+        <td (click)="deleteItemFromCart(i)">
+          Löschen ❌
+        </td>
+      </tr>
+    </table>
+
+    <button (click)="emptyCart()">Empty Cart</button>
+  </div>
+  <ng-template #elseBlock>
+    <p>Der Warenkorb ist leer.</p>
+  </ng-template>
+</div>
